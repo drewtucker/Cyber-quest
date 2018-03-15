@@ -1,14 +1,12 @@
-import {Character} from './Character';
+import { Character } from './Character';
 import { Combat } from './../Combat.js';
+import { Item } from './../Items.js';
 
-class Human extends Character
+export class Human extends Character
 {
-    // id = 1;
-    // health = 50;
-    // stamina = 10;
-    // strength = 10;
-    // intelligence = 15;
-    // speech = 15;
-    // items = [];
-    // ability = Character.AdrenalineBoost();
+      constructor() {
+        super(0, 1, 50, 15, 15, 20, 15);
+        this.items = [];
+        this.ability = this.AdrenalineBoost;
+      }
 }

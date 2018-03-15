@@ -1,14 +1,9 @@
-import {Human} from './Human';
-import {Cyborg} from './Cyborg';
-import {Robot} from './Robot';
-import {Alien} from './Alien';
-import {Combat} from './../Combat.js'
+import {Combat} from './../Combat';
 
 export class Character
 {
-  constructor(name, experience, level, health, stamina, strength, intelligence, speech, id=0)
+  constructor(experience, level, health, stamina, strength, intelligence, speech)
   {
-    this.name = name;
     this.experience = 0;
     this.level = 1;
     this.health = health;
@@ -16,8 +11,6 @@ export class Character
     this.strength = strength;
     this.intelligence = intelligence;
     this.speech = speech;
-    this.character = [Human(), Cyborg(), Robot(), Alien()];
-
   }
 
   levelUp()

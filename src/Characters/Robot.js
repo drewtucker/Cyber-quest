@@ -1,14 +1,12 @@
-import {Character} from './Character';
+import {Character} from './Character.js';
 import { Combat } from './../Combat.js'
 
-class Robot extends Character
+export class Robot extends Character
 {
-    // this.id = 3;
-    // this.health = 70;
-    // this.stamina = 14;
-    // this.strength = 16;
-    // this.intelligence = 20;
-    // this.speech = 12;
-    // this.items = [];
-    // this.ability = Character.Terminate();
+
+  constructor(){
+    super(0, 1, 70, 14, 16, 20, 12);
+    this.items = [],
+    this.ability = this.Terminate;
+  }
 }

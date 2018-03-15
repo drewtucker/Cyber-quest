@@ -2,133 +2,62 @@ import {Character} from './Character';
 
 export class Enemy
 {
-  constructor(name, health, stamina, strength, id)
+  constructor(name, health, stamina, strength)
   {
     this.name = name;
-    this.id = id;
     this.health = health;
     this.stamina = stamina;
     this.strength = strength;
-    this.enemies =
-    [
-      {
-        Criminal() //0
-        {
-          this.name = "Criminal";
-          this.health = 25;
-          this.stamina = 10;
-          this.strength = 12;
-        }
-      },
+  }
+  Criminal() //0
+  {
+    this.name = "Criminal";
+    this.health = 25;
+    this.stamina = 10;
+    this.strength = 12;
+  }
 
-      {
-        BobaFett() //1
-        {
-          this.name = "Boba Fett";
-          this.health = 35;
-          this.stamina = 12;
-          this.strength = 15;
-          this.ability = Enemy.Net(function() {
-            Character.strength -= 5;
-          });
-        }
-      },
+  BobaFett() //1
+  {
+    this.name = "Boba Fett";
+    this.health = 35;
+    this.stamina = 12;
+    this.strength = 15;
+    this.ability = Enemy.Net(function() {
+      Character.strength -= 5;
+    });
+  }
 
-      {
-        T1000() //2
-        {
-          this.name = "T-1000";
-          this.health = 70;
-          this.stamina = 19;
-          this.strength = 20;
-          this.ability = Enemy.Fortify(function(){
-            this.health += 15;
-          });
-        }
-      },
+  T1000() //2
+  {
+    this.name = "T-1000";
+    this.health = 70;
+    this.stamina = 19;
+    this.strength = 20;
+    this.ability = Enemy.Fortify(function(){
+      this.health += 15;
+    });
+  }
 
-      {
-        Predator() //3
-        {
-          this.name = "Predator";
-          this.health = 60;
-          this.stamina = 15;
-          this.strength = 17;
-          this.ability = Enemy.Hunt(function(){
-            this.strength += 5;
-          });
-        }
-      },
+  Predator() //3
+  {
+    this.name = "Predator";
+    this.health = 60;
+    this.stamina = 15;
+    this.strength = 17;
+    this.ability = Enemy.Hunt(function(){
+      this.strength += 5;
+    });
+  }
 
-      {
-        AlienQueen() //4
-        {
-          this.name = "Alien Queen";
-          this.health = 100;
-          this.stamina = 20;
-          this.strength = 23;
-          this.ability = Enemy.TailSwipe(function(){
-            Character.health -= 10;
-          });
-        }
-      }
-    ];
+  AlienQueen() //4
+  {
+    this.name = "Alien Queen";
+    this.health = 100;
+    this.stamina = 20;
+    this.strength = 23;
+    this.ability = Enemy.TailSwipe(function(){
+      Character.health -= 10;
+    });
   }
 }
-//
-//   Criminal()
-//   {
-//     this.id = 1;
-//     this.name = "Criminal";
-//     this.health = 25;
-//     this.stamina = 10;
-//     this.strength = 12;
-//   }
-//
-//   BobaFett()
-//   {
-//     this.id = 2;
-//     this.name = "Boba Fett";
-//     this.health = 35;
-//     this.stamina = 12;
-//     this.strength = 15;
-//     this.ability = Net(){
-//         Character.strength -= 5;
-//     }
-//   }
-//
-//   T1000()
-//   {
-//     this.id = 3;
-//     this.name = "T-1000";
-//     this.health = 70;
-//     this.stamina = 19;
-//     this.strength = 20;
-//     this.ability = Fortify(){
-//         this.health += 15;
-//     }
-//   }
-//
-//   Predator()
-//   {
-//     this.id = 4;
-//     this.name = "Predator";
-//     this.health = 60;
-//     this.stamina = 15;
-//     this.strength = 17;
-//     this.ability = Hunt(){
-//         this.strength += 5;
-//     }
-//   }
-//
-//   AlienQueen()
-//   {
-//     this.id = 5;
-//     this.name = "Alien Queen";
-//     this.health = 100;
-//     this.stamina = 20;
-//     this.strength = 23;
-//     this.ability = TailSwipe(){
-//         Chracter.health -= 10;
-//     }
-//   }

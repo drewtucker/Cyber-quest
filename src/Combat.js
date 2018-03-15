@@ -1,19 +1,20 @@
-import {Character} from './Characters/Character.js';
-import {Enemy} from './Characters/Enemy.js';
-import {Item} from './Items.js';
-import {Levels} from './Levels/Levels.js';
+import { Character } from './Characters/Character.js';
+import { Enemy } from './Characters/Enemy.js';
+import { Levels } from './Levels/Levels.js';
+import { Item } from './Items.js';
 
 export class Combat
 {
-  constructor(status, characterType, enemyType, level, playerHealth, enemyHealth, playerAbilityUses = 0, enemyAbilityUses = 0, i=0)
+
+  constructor(status, characterType, enemyType, level, playerHealth, enemyHealth)
   {
     this.status = true;
-    this.characterType = Character.character[i];
-    this.enemyType = Enemy.enemies[i];
-    this.level = Levels.level[i];
-    this.playerHealth = Character.character[i].health;
-    this.enemyHealth = Enemy.enemies[i].health;
-    this.characterType.items.push(Item.NutrientBar());
+    this.characterType = characterType;
+    this.enemyType = enemyType;
+    this.level = level;
+    this.playerHealth = playerHealth;
+    this.enemyHealth = enemyHealth;
+    // this.characterType.items.push(NutrientBar());
   }
 
   PlayerAttack()

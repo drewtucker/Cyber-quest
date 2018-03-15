@@ -1,4 +1,5 @@
-import {Combat} from './../Combat';
+import { Combat } from './../Combat';
+import { Item } from './../Items.js';
 
 export class Character
 {
@@ -11,6 +12,7 @@ export class Character
     this.strength = strength;
     this.intelligence = intelligence;
     this.speech = speech;
+    this.item = [Item.NutrientBar];
   }
 
   levelUp()
@@ -67,37 +69,31 @@ export class Character
   }
   PoisonSpit()
   {
-    if(Combat.status === true)
-    {
+
     //this.damage = 25;
     this.strength += 25; // damage output is now 45
-    }
+    return this.character;
   }
 
   PowerArm()
   {
-    if(Combat.status === true)
-    {
+
       this.strength = 20;
       this.stamina = 18;
-    }
+      return this.character;
   }
 
   Terminate()
   {
-    if(Combat.status === true)
-    {
       this.health += 15;
       this.strength = 20;
-    }
+      return this.character;
   }
   AdrenalineBoost()
   {
-    if(Combat.status === true)
-    {
       this.strength = 15;
       this.stamina = 15;
       this.intelligence = 25;
-    }
+      return this.character;
   }
 }

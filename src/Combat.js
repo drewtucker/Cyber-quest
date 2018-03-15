@@ -6,78 +6,64 @@ import { Item } from './Items.js';
 export class Combat
 {
 
-  constructor(status, characterType, enemyType, level, playerHealth, enemyHealth)
+  constructor(character, enemy)
   {
     this.status = true;
-    this.characterType = characterType;
-    this.enemyType = enemyType;
-    this.level = level;
-    this.playerHealth = playerHealth;
-    this.enemyHealth = enemyHealth;
-    // this.characterType.items.push(NutrientBar());
+    this.character = character;
+    this.enemy = enemy;
   }
 
+  //this method will output the enemy after the attack has been calculated
   PlayerAttack()
   {
-    this.enemyHealth = this.enemyHealth - this.characterType.strength;
-    if(this.enemyHealth <= 0)
+    this.enemy.health = this.enemy.health - this.character.strength;
+    if(this.enemy.health <= 0)
     {
       Combat.RoundOver();
     }
+    return this.enemy;
   }
 
   EnemyAttack()
   {
-    this.playerHealth = this.playerHealth - this.enemyType.strength;
-    if(this.playerHealth <= 0)
+    this.character.health = this.character.health - this.enemy.strength;
+    if(this.character.health <= 0)
     {
       Combat.RoundOver();
     }
+    return this.character;
   }
 
   UsePlayerAbility()
   {
-    if(this.level != Levels.LevelOne())
-    {
-      if(this.playerAbilityUses === 0)
-      {
-        alert("You have no ability uses left!");
-        return;
-      }
-      else
-      {
-        this.playerAbilityUses -= 1;
-        this.characterType.ability;
-      }
-    }
+    this.character.AdrenalineBoost();
+    return this.character;
   }
 
-  UseEnemyAbility()
-  {
-    if(this.level != Levels.LevelOne())
-    {
-      if(this.enemyAbilityUses === 0)
-      {
-        return;
-      }
-      else
-      {
-        this.enemyAbilityUses -= 1;
-        this.enemyType.ability;
-      }
-    }
-  }
+  // UseEnemyAbility()
+  // {
+  //   if(this.level != Levels.LevelOne())
+  //   {
+  //     if(this.enemy === 0)
+  //     {
+  //       return;
+  //     }
+  //     else
+  //     {
+  //       this.enemy -= 1;
+  //       this.enemy.ability;
+  //     }
+  //   }
+  // }
 
   RoundOver()
   {
-    if(this.playerHealth <= 0)
+    if(this.player.health <= 0)
     {
-      this.status = false;
       alert("You have been killed! R.I.P");
     }
-    else if(this.enemyHealth <= 0)
+    else if(this.enemy.health <= 0)
     {
-      this.status = false;
       alert("You won the fight!");
       Character.character.items.push(this.level.item);
       Character.experience += 50;

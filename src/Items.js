@@ -3,6 +3,12 @@ import {Character} from './Characters/Character.js';
 
 export class Item
 {
+  constructor(name, func)
+  {
+    this.name = name;
+    this.func = func;
+  }
+
   Blaster()
   {
     Character.strength + 5;

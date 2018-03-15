@@ -4,6 +4,7 @@ export class Criminal extends Enemy
 {
   constructor()
   {
-    super("Criminal", 25, 10, 12);
+    super("Criminal", 25, 11, 12);
   }
 }
+// 

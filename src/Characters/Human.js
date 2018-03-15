@@ -6,7 +6,6 @@ export class Human extends Character
 {
       constructor() {
         super(0, 1, 50, 15, 15, 20, 15);
-        this.items = [];
         this.ability = this.AdrenalineBoost;
       }
 }

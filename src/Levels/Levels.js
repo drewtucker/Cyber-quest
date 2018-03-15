@@ -10,7 +10,7 @@ export class Levels
     this.enemy = enemy;
     this.item = item;
   }
-  
+
   LevelOne()
   {
     this.enemy = Enemy.enemies.Criminal();
